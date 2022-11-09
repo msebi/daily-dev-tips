@@ -1,7 +1,8 @@
 ---
-import StaticTweet from './StaticTweet.astro';
-import tweetData from '../lib/tweets.json';
-import { getSubscriberCount } from '../lib/subscribers';
+import StaticTweet from "./StaticTweet.astro";
+import tweetData from "../lib/tweets.json";
+import { getSubscriberCount } from "../lib/subscribers";
+
 const subscribers = await getSubscriberCount();
 const NUMBER_OF_TWEETS_TO_SHOW = 6;
 const { tweets } = tweetData;

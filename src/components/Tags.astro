@@ -1,8 +1,9 @@
 ---
-import Tag from '../components/Tag.astro';
-import { getAllPosts } from '../lib/posts.js';
+import Tag from "../components/Tag.astro";
+import { getAllPosts } from "../lib/posts.js";
+
 const allPosts = (await getAllPosts()).filter(
-  (a) => new Date(a.date) <= new Date()
+  (a: { date: string }) => new Date(a.date) <= new Date()
 );
 const allTags = [
   ...new Set(
@@ -15,11 +16,11 @@ const allTags = [
 const { slug } = Astro.params;
 ---
 
-<nav class='container mx-auto mb-4' aria-label='Tag'>
-  <ul class='flex flex-wrap'>
+<nav class="container mx-auto mb-4" aria-label="Tag">
+  <ul class="flex flex-wrap">
     <li>
       <a
-        href='/archive/'
+        href="/archive/"
         class=`${slug === undefined ? 'bg-purple-500 text-white' : 'bg-purple-200'} block p-2 mr-2 mb-2 text-sm rounded-xl font-medium`
         >All
       </a>
